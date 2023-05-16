@@ -44,7 +44,7 @@
         <h3>Round: {{ round }}</h3>
         <ul>
           <li v-for="(log, index) in logs">
-            <span :class="log.class">{{ log.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
+            <span :class="{'log--player': log.actionBy === 'player', 'log--monster': log.actionBy === 'monster'}">{{ log.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
             <span v-if="log.actionType === 'heal'"> Heals <span class="log--heal">{{ log.actionValue }}</span> HP</span>
             <span v-else> attacks and deals <span class="log--damage">{{ log.actionValue }}</span></span>
           </li>
