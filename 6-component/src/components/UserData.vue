@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  emits: ["add-user-data"],
+  emits: ["set-user-data"],
   data() {
     return {
       userName: "",
