@@ -1,10 +1,10 @@
 <template>
-  <form @submit.prevent="addUserData">
+  <form @submit.prevent="setUserData">
     <label>Username</label>
     <input type="text" v-model="userName" />
     <label>Age</label>
     <input type="text" v-model="userAge" />
-    <button type="submit">Add User Data</button>
+    <button type="submit">Set User Data</button>
   </form>
 </template>
 
@@ -18,11 +18,8 @@ export default {
     };
   },
   methods: {
-    addUserData() {
-      this.$emit("add-user-data", {
-        name: this.userName,
-        age: this.userAge,
-      });
+    setUserData() {
+      this.$emit("set-user-data", this.userName, this.userAge);
       this.userName = "";
       this.userAge = "";
     },

@@ -1,13 +1,13 @@
 <template>
-  <header>
-    <h1>Active Users</h1>
-  </header>
-  <section>
-    <user-data @add-user-data="addUsers"></user-data>
-  </section>
-  <section>
-    <active-user v-for="user in users" :key="user.username" :username="user.name" :age="user.age"></active-user>
-  </section>
+  <div>
+    <header>
+      <h1>Active Users</h1>
+    </header>
+    <section>
+      <user-data @set-user-data="setUser"></user-data>
+      <active-user :username="user.name" :age="user.age"></active-user>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -15,21 +15,21 @@ export default {
   name: "App",
   data() {
     return {
-      users: [
-        { name: "Abigail", age: 10 },
-        { name: "Anob", age: 13 },
-      ],
+      user: { name: "Abigail", age: 10 },
     };
   },
   methods: {
-    addUsers(userData) {
-      this.users.push(userData);
+    setUser(username, age) {
+      this.user = {
+        name: username,
+        age: +age,
+      };
     },
   },
 };
 </script>
 
-<style>
+<!-- <style>
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 * {
   box-sizing: border-box;
@@ -109,4 +109,4 @@ header {
 #app form div {
   margin: 1rem 0;
 }
-</style>
+</style> -->
